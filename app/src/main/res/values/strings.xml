@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CRUD</string>
+    <string name="titulo">Registro estudiante\n</string>
+    <string name="helper_NombreEstudiante">obligatorio</string>
+    <string name="hint_nombreEstudiante">Nombre de estudiante\n</string>
+</resources>
