@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_30"
         app:endIconMode="clear_text"
-        app:helperText="@string/helper_NombreEstudiante"
+        app:helperText="@string/hint_nombreEstudiante"
         app:counterEnabled="true"
         app:counterMaxLength="@integer/n_80"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +53,118 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCorreoEstudiante"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilNombreEstudiante"
+        >
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCorreoEstudiante"
+            android:hint="@string/hint_correElectronico"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCurso"
+        android:layout_width="@dimen/w_200"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:counterEnabled="true"
+        app:counterMaxLength="@integer/n_6"
+        android:layout_marginTop="@dimen/margin_10"
+        app:helperText="@string/helper_Obligatorio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilCorreoEstudiante"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCurso"
+            android:hint="@string/hint_curso"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnLimpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/limpiar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tilCurso"
+        app:layout_constraintTop_toTopOf="@id/tilCurso" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilCurso">
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSuccess"
+            android:text="@string/guardar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btnListar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/listar"
+            android:backgroundTint="@color/color1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnGuardar"
+            app:layout_constraintEnd_toStartOf="@id/btnActualizar"/>
+
+        <Button
+            android:id="@+id/btnActualizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/actualizar"
+            android:backgroundTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+<ScrollView
+    android:id="@+id/svListaEstudiante"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="@dimen/margin_10"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/clBotones"
+    app:layout_constraintBottom_toBottomOf="parent">
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListaEstudiante"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/estudiante">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_10">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvIdEstudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="ID: Estudiante"/>
+
+        <TextView
+            android:id="@+id/tvNombreEstudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Nombre del estudiante"/>
+
+        <TextView
+            android:id="@+id/tvCorreoEstudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="correo@correo.co"/>
+
+        <TextView
+            android:id="@+id/tvCursoEstudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="curso del estudiante"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnEliminar"
+        android:backgroundTint="#F44336"
+        android:layout_gravity="center"
+        android:text="@string/eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

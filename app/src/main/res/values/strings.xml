@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">CRUD</string>
-    <string name="titulo">Registro estudiante\n</string>
-    <string name="helper_NombreEstudiante">obligatorio</string>
-    <string name="hint_nombreEstudiante">Nombre de estudiante\n</string>
+    <string name="titulo">Registro estudiante</string>
+    <string name="helper_Obligatorio">obligatorio</string>
+    <string name="hint_nombreEstudiante">Nombre de estudiante</string>
+    <string name="hint_correElectronico">Correo electrónico</string>
+    <string name="hint_curso">Curso\n</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="guardar">Guardar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="listar">Listar</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

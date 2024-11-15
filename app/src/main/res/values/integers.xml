@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="n_80">80</integer>
+    <integer name="n_4">4</integer>
+    <integer name="n_6">6</integer>
 </resources>
