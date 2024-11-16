@@ -22,10 +22,6 @@ class EstudianteAdapter: RecyclerView.Adapter<EstudianteAdapter.EstudianteViewHo
         }
     }
 
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EstudianteViewHolder {
-//        TODO("Not yet implemented")
-//    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = EstudianteViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.estudiante, parent, false)
     )
