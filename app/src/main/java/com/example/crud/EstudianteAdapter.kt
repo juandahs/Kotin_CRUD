@@ -31,8 +31,14 @@ class EstudianteAdapter: RecyclerView.Adapter<EstudianteAdapter.EstudianteViewHo
     override fun onBindViewHolder(holder: EstudianteViewHolder, position: Int) {
         val estudiante = estudiantes[position]
         holder.bindViewEstudiante(estudiante)
+        holder.itemView.setOnClickListener { onClickItem?.invoke(estudiante) }
     }
 
+    private var onClickItem: ((EstudianteModel) -> Unit)? = null
+
+    fun setOnClickItem(callback: (EstudianteModel) -> Unit) {
+        this.onClickItem = callback
+    }
 
     fun addEstudiante(estudiantes: ArrayList<EstudianteModel>)
     {
