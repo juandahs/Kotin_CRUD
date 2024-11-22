@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 val estudiante = EstudianteModel(estudianteModelo?.id, nombre, correo, curso)
                 actualizarEstudiante(estudiante)
             }
+          
         }
 
         adapter?.setOnClickItem { estudiante ->

@@ -45,4 +45,5 @@ class EstudianteAdapter: RecyclerView.Adapter<EstudianteAdapter.EstudianteViewHo
         this.estudiantes = estudiantes
         notifyDataSetChanged() //recarga el adaptador
     }
+
 }
