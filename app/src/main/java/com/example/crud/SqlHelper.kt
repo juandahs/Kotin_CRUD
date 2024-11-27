@@ -50,11 +50,13 @@ class SqlHelper(Context: MainActivity) : SQLiteOpenHelper(Context, DB_NAME, null
     @SuppressLint("Range, Recycle")
     fun obtenerEstudiantes(): ArrayList<EstudianteModel> {
         val selectQuery = "SELECT * FROM $TABLE_NAME ORDER BY $ID DESC"
+        //this eslas configuraciones de la base de datos, hechas en el constructor
         val db = this.readableDatabase
         val estudiantes = ArrayList<EstudianteModel>()
 
         try {
 
+            //el cursor nos permite recorrer la tabla e interpretar los datos
             val cursor = db.rawQuery(selectQuery, null)
             if (cursor.moveToFirst()) {
                 do {
@@ -76,22 +78,21 @@ class SqlHelper(Context: MainActivity) : SQLiteOpenHelper(Context, DB_NAME, null
         return  estudiantes
     }
 
-    fun eliminarEstudiante(id: Int): Int {
+    fun eliminarEstudiante(id: Int) {
         val db = this.writableDatabase
-        val success = db.delete(TABLE_NAME, "$ID=?", arrayOf(id.toString()))
+        db.delete(TABLE_NAME, "$ID=${id}", null)
         db.close()
-        return success
     }
 
     fun actualizarEstudiante(estudiante: EstudianteModel): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(ID, estudiante.id)
         contentValues.put(NOMBRE, estudiante.nombre)
         contentValues.put(CORREO, estudiante.correoElectronico)
         contentValues.put(CURSO, estudiante.curso)
 
-        val success = db.update(TABLE_NAME, contentValues, "$ID=?", arrayOf(estudiante.id.toString()))
+        val success = db.update(TABLE_NAME, contentValues, "$ID=${estudiante.id}", null)
+        //val success = db.update(TABLE_NAME, contentValues, "$ID=?", arrayOf(estudiante.id.toString()))
         db.close()
         return success
     }

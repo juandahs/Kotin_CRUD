@@ -49,6 +49,14 @@ class MainActivity : AppCompatActivity() {
             binding.etCorreoEstudiante.setText(this.estudianteModelo?.correoElectronico)
             binding.etCurso.setText(this.estudianteModelo?.curso)
         }
+
+        adapter?.setOnClickDeleteItem { estudiante ->
+            // el let se utiliza para validar que el id no sea nulo
+            estudiante.id?.let{
+                id -> eliminarEstudiante(id)
+            }
+            //eliminarEstudiante(estudiante.id!!)
+        }
     }
 
 
@@ -149,21 +157,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun eliminarEstudiante(id: Int): Int {
-        val status = SqliteHelper.eliminarEstudiante(id)
-        if(status >= 1)
-        {
-            //StylableToast.makeText(this, "Estudiante eliminado", R.style.success_toast).show()
-            obtenerEstudiantes()
-        }
-        return status
-    }
+    private fun eliminarEstudiante(id: Int) {
 
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setMessage("¿Desea eliminar el estudiante?")
+        //no deja que se cierre la alerta pulsando fuera de ella
+        builder.setCancelable(true)
+
+        builder.setPositiveButton("Si") { dialog, _ ->
+            SqliteHelper.eliminarEstudiante(id)
+            limpiar()
+            obtenerEstudiantes()
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.create().show()
+    }
 
     //Se inicializa el recicler view el cúal necesita el LinearLayoutManager y el adaptador
     private fun initRecyclerView() {
         adapter = EstudianteAdapter()
-        //se indica el tipo de layout que se va a usar en el recicler view
+        //se indica el tipo de layout que se va a usar en el recicler view (cómo)
         binding.rvListaEstudiante.layoutManager = LinearLayoutManager(this)
         //pasa los datos al adaptador
         binding.rvListaEstudiante.adapter = adapter
